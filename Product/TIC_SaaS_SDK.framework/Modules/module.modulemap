@@ -1,0 +1,6 @@
+framework module TIC_SaaS_SDK {
+  umbrella header "TIC_SaaS_SDK.h"
+
+  export *
+  module * { export * }
+}
