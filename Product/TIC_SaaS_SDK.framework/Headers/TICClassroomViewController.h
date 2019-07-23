@@ -4,23 +4,13 @@
 //
 //  Created by jameskhdeng(邓凯辉) on 2019/3/8.
 //  Copyright © 2019 Tencent. All rights reserved.
-//  课堂主页
+//  课堂主页控制器，只支持横屏展示
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol TICEventListener, TICMessageListener;
-@interface TICClassParams : NSObject
-@property (nonatomic, copy) NSString *classId;
-@property (nonatomic, copy) NSString *topic;
-@property (nonatomic, copy) NSString *userID;
-@property (nonatomic, copy) NSString *teacherID;
-@property (nonatomic, assign) NSUInteger durationTime;
-@end
+@interface TICClassroomViewController : UIViewController
 
-@interface TICClassroomViewController : UIViewController <TICEventListener, TICMessageListener>
-
-    
 /**
 初始化接口
 
@@ -33,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)init __attribute__((unavailable("Please use 'initWithClassId:' instead")));
 - (instancetype)new __attribute__((unavailable("Please use ’initWithClassId:’ instead")));
+- (instancetype)initWithCoder:(NSCoder *)aDecoder __attribute__((unavailable("Please use ’initWithClassId:’ instead")));
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil __attribute__((unavailable("Please use ’initWithClassId:’ instead")));
 
 @end
 

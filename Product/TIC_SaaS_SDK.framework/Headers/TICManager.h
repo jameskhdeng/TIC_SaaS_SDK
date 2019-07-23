@@ -5,9 +5,14 @@
 //  Created by jameskhdeng(邓凯辉) on 2019/7/10.
 //  对外接口
 
+
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+extern NSString * const TICNotificationUserForceOffline;    //!< 用户 IM 账号被踢通知
+extern NSString * const TICNotificationUserSigExpired;      //!< 用户 IM 账号 usersig 过期通知
+
+
 @class TICClassroomConfig;
 @interface TICManager : NSObject
 
@@ -16,9 +21,22 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 + (instancetype)sharedInstance;
 
+/**
+ 获取SDK版本号
+ */
++ (NSString *)getVersion;
+
 
 /**
- 初始化【建议 App 启动时调用】，默认开启 bugly
+ 初始化
+
+ @param callback 回调
+ */
+//- (void)initWithCallback:(void (^)(int code, NSString *desc))callback;
+
+
+/**
+ 初始化组件，默认开启 bugly，建议 App 启动时调用
 
  @param sdkAppId 腾讯云应用程序标识
  @param callback 回调
@@ -27,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
-  初始化【建议 App 启动时调用】
+  初始化组件，建议 App 启动时调用
 
  @param sdkAppId 腾讯云应用程序标识
  @param isOpen 是否开启SDK内 bugly 模块
@@ -51,13 +69,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 课堂配置类
+ 课堂配置类，加入课堂时需传入这些信息，带✅的为必填项
  */
 @interface TICClassroomConfig : NSObject
-@property (nonatomic, copy) NSString *classId;  // 课堂ID
-@property (nonatomic, copy) NSString *userID;   // 用户ID
-@property (nonatomic, copy) NSString *userToken;// 用户签名
-@property (nonatomic, copy) NSString *userSig;  // 腾讯云用户签名
+    
+@property (nonatomic, copy) NSString *classId;  // 课堂ID✅
+@property (nonatomic, copy) NSString *userID;   // 用户ID✅
+@property (nonatomic, copy) NSString *userToken;// 用户密码✅
+@property (nonatomic, strong) NSNumber *organCode;  // 机构码（腾讯云互动课堂后台为每个注册企业的分配唯一标识码）✅
+
+@property (nonatomic, copy) NSString *userSig;  // 用户签名（没有在腾讯云互动课堂后台设置IM私钥的，必填；设置了IM私钥的填 nil）
+    
 @end
 
 NS_ASSUME_NONNULL_END
