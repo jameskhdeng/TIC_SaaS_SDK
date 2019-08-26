@@ -1,0 +1,6 @@
+framework module TXDataReportSDK {
+  umbrella header "TXDataReportSDK.h"
+
+  export *
+  module * { export * }
+}
