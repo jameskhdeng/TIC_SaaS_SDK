@@ -17,6 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 @param classId 课堂ID
 */
 - (instancetype)initWithClassId:(NSString *)classId;
+
+/**
+初始化接口
+
+@param classId 课堂ID
+ @param isOnlyStudent 移动端是否仅允许学生进入课堂，老师端进入会提示在桌面端登录（默认是NO）
+*/
+- (instancetype)initWithClassId:(NSString *)classId onlyStudent:(BOOL)isOnlyStudent;
     
 /**
  请用 initWithClassId: 方法初始化 TICClassroomViewController，而不是下面的方法

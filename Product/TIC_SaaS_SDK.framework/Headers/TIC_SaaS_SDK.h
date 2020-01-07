@@ -11,7 +11,7 @@
 static NSString * const sdkVersion = @"1.0.0";
 
 //#import <TIC_SaaS_SDK/TICClassroomViewController.h>
-//#import <TIC_SaaS_SDK/TICManager.h>
+//#import <TIC_SaaS_SDK/TICManager. h>
 
 #import "TICClassroomViewController.h"
 #import "TICManager.h"
