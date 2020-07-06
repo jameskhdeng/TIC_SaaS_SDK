@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const sdkVersion = @"1.3.2";
+static NSString * const sdkVersion = @"1.3.1";
 
 //#import <TIC_SaaS_SDK/TICClassroomViewController.h>
 //#import <TIC_SaaS_SDK/TICManager. h>
